@@ -1,1 +1,471 @@
-Turnalia under construction
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnalia - Gestión Inteligente de Turnos</title>
+    <meta name="description" content="Turnalia - La solución moderna para la gestión de turnos hospitalarios y equipos médicos">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8f5e8 0%, #e6f3ff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e8b57 0%, #4682b4 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo .emoji {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.9), rgba(70, 130, 180, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero .emojis {
+            font-size: 4rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #32cd32, #20b2aa);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2e8b57;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f0f8f0, #f0f8ff);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #4682b4;
+        }
+
+        .feature-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: #2e8b57;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #2e8b57, #4682b4);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-item .number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-item .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .about {
+            padding: 5rem 0;
+            background: #f8fffe;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about h2 {
+            color: #2e8b57;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .about-visual {
+            text-align: center;
+            font-size: 8rem;
+            color: #4682b4;
+            opacity: 0.7;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #32cd32;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #32cd32;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero .emojis {
+                font-size: 3rem;
+                gap: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-visual {
+                font-size: 5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="emoji">🏥</span>
+                    Turnalia
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#sobre-nosotros">Acerca de</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Gestión Inteligente de Turnos</h1>
+            <p class="subtitle">La solución moderna para hospitales y equipos médicos</p>
+            <div class="emojis">
+                <span class="pulse">👩‍⚕️</span>
+                <span class="pulse">🏥</span>
+                <span class="pulse">👨‍⚕️</span>
+                <span class="pulse">📋</span>
+            </div>
+            <a href="#caracteristicas" class="cta-button">Descubre Turnalia</a>
+        </div>
+    </section>
+
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <h2>¿Por qué elegir Turnalia?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="emoji">📅</span>
+                    <h3>Planificación Automática</h3>
+                    <p>Algoritmos inteligentes que optimizan automáticamente los horarios según las necesidades del personal y del hospital.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">👥</span>
+                    <h3>Gestión de Equipos</h3>
+                    <p>Organiza eficientemente a médicos, enfermeros y personal auxiliar con distribución equitativa de cargas de trabajo.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">🔄</span>
+                    <h3>Intercambio de Turnos</h3>
+                    <p>Facilita el intercambio de turnos entre compañeros con un sistema de notificaciones en tiempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">📱</span>
+                    <h3>App Móvil</h3>
+                    <p>Accede a tus horarios desde cualquier lugar con nuestra aplicación móvil intuitiva y fácil de usar.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">📊</span>
+                    <h3>Reportes Detallados</h3>
+                    <p>Analiza patrones de trabajo, horas extras y distribución de turnos con informes completos y visualizaciones.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">🔐</span>
+                    <h3>Seguridad Garantizada</h3>
+                    <p>Protección de datos sanitarios con encriptación de nivel hospitalario y cumplimiento de normativas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <h2>Turnalia en Números</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="number">50+</span>
+                    <span class="label">Hospitales</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">5,000+</span>
+                    <span class="label">Profesionales</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">99.9%</span>
+                    <span class="label">Uptime</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">24/7</span>
+                    <span class="label">Soporte</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>Sobre Turnalia</h2>
+                    <p>Turnalia nace de la necesidad de modernizar la gestión de turnos en el sector sanitario. Desarrollado por un equipo de profesionales con experiencia en hospitales y tecnología.</p>
+                    <p>Nuestra misión es simplificar la vida del personal médico, reducir los errores administrativos y mejorar la eficiencia operativa de los centros de salud.</p>
+                    <p>Con Turnalia, los hospitales pueden optimizar sus recursos humanos, garantizar una cobertura adecuada en todos los servicios y proporcionar un mejor equilibrio vida-trabajo a sus equipos.</p>
+                </div>
+                <div class="about-visual">
+                    🏥👩‍⚕️👨‍⚕️
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>📧 info@turnalia.es</p>
+                    <p>📞 +34 900 000 000</p>
+                    <p>🏢 Madrid, España</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <p><a href="#">Documentación</a></p>
+                    <p><a href="#">Guías de Usuario</a></p>
+                    <p><a href="#">API</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <p><a href="#">Acerca de</a></p>
+                    <p><a href="#">Política de Privacidad</a></p>
+                    <p><a href="#">Términos de Servicio</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Turnalia. Todos los derechos reservados. 🏥 Gestión inteligente de turnos hospitalarios.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactivity to feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
