@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turnalia - Gestión Inteligente de Turnos</title>
-    <meta name="description" content="Turnalia - La solución moderna para la gestión de turnos hospitalarios y equipos médicos">
+    <title data-translate="meta.title">Turnalia - Gestión Inteligente de Turnos</title>
+    <meta name="description" data-translate="meta.description" content="Turnalia - La solución moderna para la gestión de turnos hospitalarios y equipos médicos">
     <style>
         * {
             margin: 0;
@@ -37,6 +37,42 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.5rem;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .logo {
@@ -382,6 +418,16 @@
                 gap: 1rem;
             }
 
+            .header-right {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .language-switcher {
+                align-self: center;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -446,66 +492,72 @@
                     <span class="emoji">🏥</span>
                     Turnalia
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#caracteristicas">Características</a></li>
-                        <li><a href="#lista-espera">Lista de Espera</a></li>
-                        <li><a href="#sobre-nosotros">Acerca de</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </nav>
+                <div class="header-right">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" onclick="switchLanguage('es')" id="lang-es">🇪🇸 ES</button>
+                        <button class="lang-btn" onclick="switchLanguage('en')" id="lang-en">🇬🇧 EN</button>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#inicio" data-translate="nav.home">Inicio</a></li>
+                            <li><a href="#caracteristicas" data-translate="nav.features">Características</a></li>
+                            <li><a href="#lista-espera" data-translate="nav.waitlist">Lista de Espera</a></li>
+                            <li><a href="#sobre-nosotros" data-translate="nav.about">Acerca de</a></li>
+                            <li><a href="#contacto" data-translate="nav.contact">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>
 
     <section id="inicio" class="hero">
         <div class="container">
-            <h1>Gestión Inteligente de Turnos</h1>
-            <p class="subtitle">La solución moderna para hospitales y equipos médicos</p>
+            <h1 data-translate="hero.title">Gestión Inteligente de Turnos</h1>
+            <p class="subtitle" data-translate="hero.subtitle">La solución moderna para hospitales y equipos médicos</p>
             <div class="emojis">
                 <span class="pulse">👩‍⚕️</span>
                 <span class="pulse">🏥</span>
                 <span class="pulse">👨‍⚕️</span>
                 <span class="pulse">📋</span>
             </div>
-            <a href="#caracteristicas" class="cta-button">Descubre Turnalia</a>
+            <a href="#caracteristicas" class="cta-button" data-translate="hero.cta">Descubre Turnalia</a>
         </div>
     </section>
 
     <section id="caracteristicas" class="features">
         <div class="container">
-            <h2>¿Por qué elegir Turnalia?</h2>
+            <h2 data-translate="features.title">¿Por qué elegir Turnalia?</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="emoji">📅</span>
-                    <h3>Planificación Automática</h3>
-                    <p>Algoritmos inteligentes que optimizan automáticamente los horarios según las necesidades del personal y del hospital.</p>
+                    <h3 data-translate="features.planning.title">Planificación Automática</h3>
+                    <p data-translate="features.planning.description">Algoritmos inteligentes que optimizan automáticamente los horarios según las necesidades del personal y del hospital.</p>
                 </div>
                 <div class="feature-card">
                     <span class="emoji">👥</span>
-                    <h3>Gestión de Equipos</h3>
-                    <p>Organiza eficientemente a médicos, enfermeros y personal auxiliar con distribución equitativa de cargas de trabajo.</p>
+                    <h3 data-translate="features.teams.title">Gestión de Equipos</h3>
+                    <p data-translate="features.teams.description">Organiza eficientemente a médicos, enfermeros y personal auxiliar con distribución equitativa de cargas de trabajo.</p>
                 </div>
                 <div class="feature-card">
                     <span class="emoji">🔄</span>
-                    <h3>Intercambio de Turnos</h3>
-                    <p>Facilita el intercambio de turnos entre compañeros con un sistema de notificaciones en tiempo real.</p>
+                    <h3 data-translate="features.exchange.title">Intercambio de Turnos</h3>
+                    <p data-translate="features.exchange.description">Facilita el intercambio de turnos entre compañeros con un sistema de notificaciones en tiempo real.</p>
                 </div>
                 <div class="feature-card">
                     <span class="emoji">📱</span>
-                    <h3>App Móvil</h3>
-                    <p>Accede a tus horarios desde cualquier lugar con nuestra aplicación móvil intuitiva y fácil de usar.</p>
+                    <h3 data-translate="features.mobile.title">App Móvil</h3>
+                    <p data-translate="features.mobile.description">Accede a tus horarios desde cualquier lugar con nuestra aplicación móvil intuitiva y fácil de usar.</p>
                 </div>
                 <div class="feature-card">
                     <span class="emoji">📊</span>
-                    <h3>Reportes Detallados</h3>
-                    <p>Analiza patrones de trabajo, horas extras y distribución de turnos con informes completos y visualizaciones.</p>
+                    <h3 data-translate="features.reports.title">Reportes Detallados</h3>
+                    <p data-translate="features.reports.description">Analiza patrones de trabajo, horas extras y distribución de turnos con informes completos y visualizaciones.</p>
                 </div>
                 <div class="feature-card">
                     <span class="emoji">🔐</span>
-                    <h3>Seguridad Garantizada</h3>
-                    <p>Protección de datos sanitarios con encriptación de nivel hospitalario y cumplimiento de normativas.</p>
+                    <h3 data-translate="features.security.title">Seguridad Garantizada</h3>
+                    <p data-translate="features.security.description">Protección de datos sanitarios con encriptación de nivel hospitalario y cumplimiento de normativas.</p>
                 </div>
             </div>
         </div>
@@ -513,23 +565,23 @@
 
     <section class="stats">
         <div class="container">
-            <h2>Turnalia en Números</h2>
+            <h2 data-translate="stats.title">Turnalia en Números</h2>
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="number">50+</span>
-                    <span class="label">Hospitales</span>
+                    <span class="label" data-translate="stats.hospitals">Hospitales</span>
                 </div>
                 <div class="stat-item">
                     <span class="number">5,000+</span>
-                    <span class="label">Profesionales</span>
+                    <span class="label" data-translate="stats.professionals">Profesionales</span>
                 </div>
                 <div class="stat-item">
                     <span class="number">99.9%</span>
-                    <span class="label">Uptime</span>
+                    <span class="label" data-translate="stats.uptime">Uptime</span>
                 </div>
                 <div class="stat-item">
                     <span class="number">24/7</span>
-                    <span class="label">Soporte</span>
+                    <span class="label" data-translate="stats.support">Soporte</span>
                 </div>
             </div>
         </div>
@@ -538,63 +590,63 @@
     <section id="lista-espera" class="waitlist">
         <div class="container">
             <div class="waitlist-content">
-                <h2>🚀 Únete a la Lista de Espera</h2>
-                <p class="waitlist-subtitle">Sé el primero en acceder a Turnalia y revoluciona la gestión de turnos en tu hospital</p>
+                <h2 data-translate="waitlist.title">🚀 Únete a la Lista de Espera</h2>
+                <p class="waitlist-subtitle" data-translate="waitlist.subtitle">Sé el primero en acceder a Turnalia y revoluciona la gestión de turnos en tu hospital</p>
                 
                 <form class="waitlist-form" id="waitlistForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="nombre">👤 Nombre Completo</label>
+                            <label for="nombre" data-translate="waitlist.form.name">👤 Nombre Completo</label>
                             <input type="text" id="nombre" name="nombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">📧 Email</label>
+                            <label for="email" data-translate="waitlist.form.email">📧 Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="hospital">🏥 Hospital/Centro Médico</label>
+                            <label for="hospital" data-translate="waitlist.form.hospital">🏥 Hospital/Centro Médico</label>
                             <input type="text" id="hospital" name="hospital" required>
                         </div>
                         <div class="form-group">
-                            <label for="cargo">👩‍⚕️ Cargo/Posición</label>
+                            <label for="cargo" data-translate="waitlist.form.position">👩‍⚕️ Cargo/Posición</label>
                             <select id="cargo" name="cargo" required>
-                                <option value="">Selecciona tu cargo</option>
-                                <option value="director-medico">Director Médico</option>
-                                <option value="jefe-enfermeria">Jefe de Enfermería</option>
-                                <option value="supervisor">Supervisor</option>
-                                <option value="medico">Médico</option>
-                                <option value="enfermero">Enfermero/a</option>
-                                <option value="administrativo">Personal Administrativo</option>
-                                <option value="otros">Otros</option>
+                                <option value="" data-translate="waitlist.form.selectPosition">Selecciona tu cargo</option>
+                                <option value="director-medico" data-translate="waitlist.form.positions.medical_director">Director Médico</option>
+                                <option value="jefe-enfermeria" data-translate="waitlist.form.positions.nursing_chief">Jefe de Enfermería</option>
+                                <option value="supervisor" data-translate="waitlist.form.positions.supervisor">Supervisor</option>
+                                <option value="medico" data-translate="waitlist.form.positions.doctor">Médico</option>
+                                <option value="enfermero" data-translate="waitlist.form.positions.nurse">Enfermero/a</option>
+                                <option value="administrativo" data-translate="waitlist.form.positions.admin">Personal Administrativo</option>
+                                <option value="otros" data-translate="waitlist.form.positions.other">Otros</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="telefono">📞 Teléfono (opcional)</label>
+                        <label for="telefono" data-translate="waitlist.form.phone">📞 Teléfono (opcional)</label>
                         <input type="tel" id="telefono" name="telefono">
                     </div>
 
                     <div class="form-group">
-                        <label for="comentarios">💬 ¿Cuáles son tus principales desafíos en la gestión de turnos?</label>
-                        <textarea id="comentarios" name="comentarios" rows="4" placeholder="Cuéntanos qué problemas enfrentas actualmente..."></textarea>
+                        <label for="comentarios" data-translate="waitlist.form.comments">💬 ¿Cuáles son tus principales desafíos en la gestión de turnos?</label>
+                        <textarea id="comentarios" name="comentarios" rows="4" data-translate-placeholder="waitlist.form.commentsPlaceholder" placeholder="Cuéntanos qué problemas enfrentas actualmente..."></textarea>
                     </div>
 
                     <button type="submit" class="waitlist-btn">
-                        ✨ Unirme a la Lista de Espera
+                        <span data-translate="waitlist.form.submit">✨ Unirme a la Lista de Espera</span>
                     </button>
                 </form>
 
                 <div class="waitlist-benefits">
-                    <h3>📋 Beneficios de ser early adopter:</h3>
+                    <h3 data-translate="waitlist.benefits.title">📋 Beneficios de ser early adopter:</h3>
                     <ul>
-                        <li>🎯 Acceso prioritario y gratuito durante 3 meses</li>
-                        <li>📚 Formación personalizada para tu equipo</li>
-                        <li>🤝 Participación en el desarrollo de nuevas funcionalidades</li>
-                        <li>💰 Descuentos especiales en planes anuales</li>
+                        <li data-translate="waitlist.benefits.access">🎯 Acceso prioritario y gratuito durante 3 meses</li>
+                        <li data-translate="waitlist.benefits.training">📚 Formación personalizada para tu equipo</li>
+                        <li data-translate="waitlist.benefits.development">🤝 Participación en el desarrollo de nuevas funcionalidades</li>
+                        <li data-translate="waitlist.benefits.discounts">💰 Descuentos especiales en planes anuales</li>
                     </ul>
                 </div>
             </div>
@@ -605,10 +657,10 @@
         <div class="container">
             <div class="about-content">
                 <div>
-                    <h2>Sobre Turnalia</h2>
-                    <p>Turnalia nace de la necesidad de modernizar la gestión de turnos en el sector sanitario. Desarrollado por un equipo de profesionales con experiencia en hospitales y tecnología.</p>
-                    <p>Nuestra misión es simplificar la vida del personal médico, reducir los errores administrativos y mejorar la eficiencia operativa de los centros de salud.</p>
-                    <p>Con Turnalia, los hospitales pueden optimizar sus recursos humanos, garantizar una cobertura adecuada en todos los servicios y proporcionar un mejor equilibrio vida-trabajo a sus equipos.</p>
+                    <h2 data-translate="about.title">Sobre Turnalia</h2>
+                    <p data-translate="about.paragraph1">Turnalia nace de la necesidad de modernizar la gestión de turnos en el sector sanitario. Desarrollado por un equipo de profesionales con experiencia en hospitales y tecnología.</p>
+                    <p data-translate="about.paragraph2">Nuestra misión es simplificar la vida del personal médico, reducir los errores administrativos y mejorar la eficiencia operativa de los centros de salud.</p>
+                    <p data-translate="about.paragraph3">Con Turnalia, los hospitales pueden optimizar sus recursos humanos, garantizar una cobertura adecuada en todos los servicios y proporcionar un mejor equilibrio vida-trabajo a sus equipos.</p>
                 </div>
                 <div class="about-visual">
                     🏥👩‍⚕️👨‍⚕️
@@ -621,31 +673,330 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Contacto</h3>
+                    <h3 data-translate="footer.contact.title">Contacto</h3>
                     <p>📧 info@turnalia.es</p>
                     <p>📞 +34 900 000 000</p>
-                    <p>🏢 Madrid, España</p>
+                    <p data-translate="footer.contact.location">🏢 Madrid, España</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Recursos</h3>
-                    <p><a href="#">Documentación</a></p>
-                    <p><a href="#">Guías de Usuario</a></p>
-                    <p><a href="#">API</a></p>
+                    <h3 data-translate="footer.resources.title">Recursos</h3>
+                    <p><a href="#" data-translate="footer.resources.documentation">Documentación</a></p>
+                    <p><a href="#" data-translate="footer.resources.guides">Guías de Usuario</a></p>
+                    <p><a href="#" data-translate="footer.resources.api">API</a></p>
                 </div>
                 <div class="footer-section">
-                    <h3>Empresa</h3>
-                    <p><a href="#">Acerca de</a></p>
-                    <p><a href="#">Política de Privacidad</a></p>
-                    <p><a href="#">Términos de Servicio</a></p>
+                    <h3 data-translate="footer.company.title">Empresa</h3>
+                    <p><a href="#" data-translate="footer.company.about">Acerca de</a></p>
+                    <p><a href="#" data-translate="footer.company.privacy">Política de Privacidad</a></p>
+                    <p><a href="#" data-translate="footer.company.terms">Términos de Servicio</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Turnalia. Todos los derechos reservados. 🏥 Gestión inteligente de turnos hospitalarios.</p>
+                <p data-translate="footer.copyright">&copy; 2024 Turnalia. Todos los derechos reservados. 🏥 Gestión inteligente de turnos hospitalarios.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Translation objects
+        const translations = {
+            es: {
+                meta: {
+                    title: "Turnalia - Gestión Inteligente de Turnos",
+                    description: "Turnalia - La solución moderna para la gestión de turnos hospitalarios y equipos médicos"
+                },
+                nav: {
+                    home: "Inicio",
+                    features: "Características",
+                    waitlist: "Lista de Espera",
+                    about: "Acerca de",
+                    contact: "Contacto"
+                },
+                hero: {
+                    title: "Gestión Inteligente de Turnos",
+                    subtitle: "La solución moderna para hospitales y equipos médicos",
+                    cta: "Descubre Turnalia"
+                },
+                features: {
+                    title: "¿Por qué elegir Turnalia?",
+                    planning: {
+                        title: "Planificación Automática",
+                        description: "Algoritmos inteligentes que optimizan automáticamente los horarios según las necesidades del personal y del hospital."
+                    },
+                    teams: {
+                        title: "Gestión de Equipos",
+                        description: "Organiza eficientemente a médicos, enfermeros y personal auxiliar con distribución equitativa de cargas de trabajo."
+                    },
+                    exchange: {
+                        title: "Intercambio de Turnos",
+                        description: "Facilita el intercambio de turnos entre compañeros con un sistema de notificaciones en tiempo real."
+                    },
+                    mobile: {
+                        title: "App Móvil",
+                        description: "Accede a tus horarios desde cualquier lugar con nuestra aplicación móvil intuitiva y fácil de usar."
+                    },
+                    reports: {
+                        title: "Reportes Detallados",
+                        description: "Analiza patrones de trabajo, horas extras y distribución de turnos con informes completos y visualizaciones."
+                    },
+                    security: {
+                        title: "Seguridad Garantizada",
+                        description: "Protección de datos sanitarios con encriptación de nivel hospitalario y cumplimiento de normativas."
+                    }
+                },
+                stats: {
+                    title: "Turnalia en Números",
+                    hospitals: "Hospitales",
+                    professionals: "Profesionales",
+                    uptime: "Uptime",
+                    support: "Soporte"
+                },
+                waitlist: {
+                    title: "🚀 Únete a la Lista de Espera",
+                    subtitle: "Sé el primero en acceder a Turnalia y revoluciona la gestión de turnos en tu hospital",
+                    form: {
+                        name: "👤 Nombre Completo",
+                        email: "📧 Email",
+                        hospital: "🏥 Hospital/Centro Médico",
+                        position: "👩‍⚕️ Cargo/Posición",
+                        selectPosition: "Selecciona tu cargo",
+                        positions: {
+                            medical_director: "Director Médico",
+                            nursing_chief: "Jefe de Enfermería",
+                            supervisor: "Supervisor",
+                            doctor: "Médico",
+                            nurse: "Enfermero/a",
+                            admin: "Personal Administrativo",
+                            other: "Otros"
+                        },
+                        phone: "📞 Teléfono (opcional)",
+                        comments: "💬 ¿Cuáles son tus principales desafíos en la gestión de turnos?",
+                        commentsPlaceholder: "Cuéntanos qué problemas enfrentas actualmente...",
+                        submit: "✨ Unirme a la Lista de Espera"
+                    },
+                    benefits: {
+                        title: "📋 Beneficios de ser early adopter:",
+                        access: "🎯 Acceso prioritario y gratuito durante 3 meses",
+                        training: "📚 Formación personalizada para tu equipo",
+                        development: "🤝 Participación en el desarrollo de nuevas funcionalidades",
+                        discounts: "💰 Descuentos especiales en planes anuales"
+                    }
+                },
+                about: {
+                    title: "Sobre Turnalia",
+                    paragraph1: "Turnalia nace de la necesidad de modernizar la gestión de turnos en el sector sanitario. Desarrollado por un equipo de profesionales con experiencia en hospitales y tecnología.",
+                    paragraph2: "Nuestra misión es simplificar la vida del personal médico, reducir los errores administrativos y mejorar la eficiencia operativa de los centros de salud.",
+                    paragraph3: "Con Turnalia, los hospitales pueden optimizar sus recursos humanos, garantizar una cobertura adecuada en todos los servicios y proporcionar un mejor equilibrio vida-trabajo a sus equipos."
+                },
+                footer: {
+                    contact: {
+                        title: "Contacto",
+                        location: "🏢 Madrid, España"
+                    },
+                    resources: {
+                        title: "Recursos",
+                        documentation: "Documentación",
+                        guides: "Guías de Usuario",
+                        api: "API"
+                    },
+                    company: {
+                        title: "Empresa",
+                        about: "Acerca de",
+                        privacy: "Política de Privacidad",
+                        terms: "Términos de Servicio"
+                    },
+                    copyright: "© 2024 Turnalia. Todos los derechos reservados. 🏥 Gestión inteligente de turnos hospitalarios."
+                },
+                form: {
+                    validation: "Por favor, completa todos los campos obligatorios.",
+                    success: "✅ ¡Gracias! Te contactaremos pronto"
+                }
+            },
+            en: {
+                meta: {
+                    title: "Turnalia - Intelligent Shift Management",
+                    description: "Turnalia - The modern solution for hospital shift management and medical teams"
+                },
+                nav: {
+                    home: "Home",
+                    features: "Features",
+                    waitlist: "Waitlist",
+                    about: "About",
+                    contact: "Contact"
+                },
+                hero: {
+                    title: "Intelligent Shift Management",
+                    subtitle: "The modern solution for hospitals and medical teams",
+                    cta: "Discover Turnalia"
+                },
+                features: {
+                    title: "Why choose Turnalia?",
+                    planning: {
+                        title: "Automatic Planning",
+                        description: "Intelligent algorithms that automatically optimize schedules according to staff and hospital needs."
+                    },
+                    teams: {
+                        title: "Team Management",
+                        description: "Efficiently organize doctors, nurses and auxiliary staff with equitable workload distribution."
+                    },
+                    exchange: {
+                        title: "Shift Exchange",
+                        description: "Facilitate shift exchanges between colleagues with a real-time notification system."
+                    },
+                    mobile: {
+                        title: "Mobile App",
+                        description: "Access your schedules from anywhere with our intuitive and easy-to-use mobile application."
+                    },
+                    reports: {
+                        title: "Detailed Reports",
+                        description: "Analyze work patterns, overtime and shift distribution with comprehensive reports and visualizations."
+                    },
+                    security: {
+                        title: "Guaranteed Security",
+                        description: "Protection of health data with hospital-grade encryption and regulatory compliance."
+                    }
+                },
+                stats: {
+                    title: "Turnalia in Numbers",
+                    hospitals: "Hospitals",
+                    professionals: "Professionals",
+                    uptime: "Uptime",
+                    support: "Support"
+                },
+                waitlist: {
+                    title: "🚀 Join the Waitlist",
+                    subtitle: "Be the first to access Turnalia and revolutionize shift management in your hospital",
+                    form: {
+                        name: "👤 Full Name",
+                        email: "📧 Email",
+                        hospital: "🏥 Hospital/Medical Center",
+                        position: "👩‍⚕️ Position/Role",
+                        selectPosition: "Select your position",
+                        positions: {
+                            medical_director: "Medical Director",
+                            nursing_chief: "Nursing Chief",
+                            supervisor: "Supervisor",
+                            doctor: "Doctor",
+                            nurse: "Nurse",
+                            admin: "Administrative Staff",
+                            other: "Other"
+                        },
+                        phone: "📞 Phone (optional)",
+                        comments: "💬 What are your main challenges in shift management?",
+                        commentsPlaceholder: "Tell us what problems you currently face...",
+                        submit: "✨ Join the Waitlist"
+                    },
+                    benefits: {
+                        title: "📋 Early adopter benefits:",
+                        access: "🎯 Priority access and free for 3 months",
+                        training: "📚 Personalized training for your team",
+                        development: "🤝 Participation in new feature development",
+                        discounts: "💰 Special discounts on annual plans"
+                    }
+                },
+                about: {
+                    title: "About Turnalia",
+                    paragraph1: "Turnalia was born from the need to modernize shift management in the healthcare sector. Developed by a team of professionals with experience in hospitals and technology.",
+                    paragraph2: "Our mission is to simplify the lives of medical staff, reduce administrative errors and improve the operational efficiency of health centers.",
+                    paragraph3: "With Turnalia, hospitals can optimize their human resources, guarantee adequate coverage in all services and provide a better work-life balance for their teams."
+                },
+                footer: {
+                    contact: {
+                        title: "Contact",
+                        location: "🏢 Madrid, Spain"
+                    },
+                    resources: {
+                        title: "Resources",
+                        documentation: "Documentation",
+                        guides: "User Guides",
+                        api: "API"
+                    },
+                    company: {
+                        title: "Company",
+                        about: "About",
+                        privacy: "Privacy Policy",
+                        terms: "Terms of Service"
+                    },
+                    copyright: "© 2024 Turnalia. All rights reserved. 🏥 Intelligent hospital shift management."
+                },
+                form: {
+                    validation: "Please fill in all required fields.",
+                    success: "✅ Thank you! We'll contact you soon"
+                }
+            }
+        };
+
+        // Current language (default Spanish)
+        let currentLanguage = localStorage.getItem('turnalia-language') || 'es';
+
+        // Function to get nested object value by path
+        function getNestedValue(obj, path) {
+            return path.split('.').reduce((current, key) => current && current[key], obj);
+        }
+
+        // Function to translate page
+        function translatePage(language) {
+            const langData = translations[language];
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = language;
+            
+            // Update title and meta description
+            const title = document.querySelector('title');
+            const metaDesc = document.querySelector('meta[name="description"]');
+            
+            if (title) title.textContent = langData.meta.title;
+            if (metaDesc) metaDesc.setAttribute('content', langData.meta.description);
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                const translation = getNestedValue(langData, key);
+                
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                const translation = getNestedValue(langData, key);
+                
+                if (translation) {
+                    element.setAttribute('placeholder', translation);
+                }
+            });
+            
+            // Store language preference
+            localStorage.setItem('turnalia-language', language);
+            currentLanguage = language;
+        }
+
+        // Function to switch language
+        function switchLanguage(language) {
+            // Update active button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${language}`).classList.add('active');
+            
+            // Translate the page
+            translatePage(language);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${currentLanguage}`).classList.add('active');
+            
+            // Apply translations
+            translatePage(currentLanguage);
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -681,16 +1032,17 @@
             
             // Simple validation
             if (!data.nombre || !data.email || !data.hospital || !data.cargo) {
-                alert('Por favor, completa todos los campos obligatorios.');
+                alert(translations[currentLanguage].form.validation);
                 return;
             }
             
             // Show success message
-            const submitBtn = this.querySelector('.waitlist-btn');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '✅ ¡Gracias! Te contactaremos pronto';
-            submitBtn.style.background = 'linear-gradient(45deg, #32cd32, #20b2aa)';
-            submitBtn.disabled = true;
+            const submitBtn = this.querySelector('.waitlist-btn span');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = translations[currentLanguage].form.success;
+            const button = this.querySelector('.waitlist-btn');
+            button.style.background = 'linear-gradient(45deg, #32cd32, #20b2aa)';
+            button.disabled = true;
             
             // Here you would typically send the data to your backend
             console.log('Waitlist submission:', data);
@@ -698,9 +1050,9 @@
             // Reset form after 3 seconds
             setTimeout(() => {
                 this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = 'linear-gradient(45deg, #2e8b57, #4682b4)';
-                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                button.style.background = 'linear-gradient(45deg, #2e8b57, #4682b4)';
+                button.disabled = false;
             }, 3000);
         });
     </script>
