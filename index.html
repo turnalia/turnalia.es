@@ -191,6 +191,126 @@
             opacity: 0.9;
         }
 
+        .waitlist {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f0f8f0, #f0f8ff);
+        }
+
+        .waitlist-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .waitlist h2 {
+            color: #2e8b57;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .waitlist-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+
+        .waitlist-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2e8b57;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4682b4;
+            box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .waitlist-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #2e8b57, #4682b4);
+            color: white;
+            border: none;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .waitlist-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .waitlist-benefits {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+
+        .waitlist-benefits h3 {
+            color: #2e8b57;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .waitlist-benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .waitlist-benefits li {
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
         .about {
             padding: 5rem 0;
             background: #f8fffe;
@@ -288,6 +408,23 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .waitlist-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .waitlist h2 {
+                font-size: 2rem;
+            }
+
+            .waitlist-subtitle {
+                font-size: 1.1rem;
+            }
         }
 
         .pulse {
@@ -313,6 +450,7 @@
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#lista-espera">Lista de Espera</a></li>
                         <li><a href="#sobre-nosotros">Acerca de</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
@@ -397,6 +535,72 @@
         </div>
     </section>
 
+    <section id="lista-espera" class="waitlist">
+        <div class="container">
+            <div class="waitlist-content">
+                <h2>🚀 Únete a la Lista de Espera</h2>
+                <p class="waitlist-subtitle">Sé el primero en acceder a Turnalia y revoluciona la gestión de turnos en tu hospital</p>
+                
+                <form class="waitlist-form" id="waitlistForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">👤 Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">📧 Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hospital">🏥 Hospital/Centro Médico</label>
+                            <input type="text" id="hospital" name="hospital" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cargo">👩‍⚕️ Cargo/Posición</label>
+                            <select id="cargo" name="cargo" required>
+                                <option value="">Selecciona tu cargo</option>
+                                <option value="director-medico">Director Médico</option>
+                                <option value="jefe-enfermeria">Jefe de Enfermería</option>
+                                <option value="supervisor">Supervisor</option>
+                                <option value="medico">Médico</option>
+                                <option value="enfermero">Enfermero/a</option>
+                                <option value="administrativo">Personal Administrativo</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">📞 Teléfono (opcional)</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comentarios">💬 ¿Cuáles son tus principales desafíos en la gestión de turnos?</label>
+                        <textarea id="comentarios" name="comentarios" rows="4" placeholder="Cuéntanos qué problemas enfrentas actualmente..."></textarea>
+                    </div>
+
+                    <button type="submit" class="waitlist-btn">
+                        ✨ Unirme a la Lista de Espera
+                    </button>
+                </form>
+
+                <div class="waitlist-benefits">
+                    <h3>📋 Beneficios de ser early adopter:</h3>
+                    <ul>
+                        <li>🎯 Acceso prioritario y gratuito durante 3 meses</li>
+                        <li>📚 Formación personalizada para tu equipo</li>
+                        <li>🤝 Participación en el desarrollo de nuevas funcionalidades</li>
+                        <li>💰 Descuentos especiales en planes anuales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="sobre-nosotros" class="about">
         <div class="container">
             <div class="about-content">
@@ -465,6 +669,39 @@
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
+        });
+
+        // Waitlist form submission
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.nombre || !data.email || !data.hospital || !data.cargo) {
+                alert('Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+            
+            // Show success message
+            const submitBtn = this.querySelector('.waitlist-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '✅ ¡Gracias! Te contactaremos pronto';
+            submitBtn.style.background = 'linear-gradient(45deg, #32cd32, #20b2aa)';
+            submitBtn.disabled = true;
+            
+            // Here you would typically send the data to your backend
+            console.log('Waitlist submission:', data);
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = 'linear-gradient(45deg, #2e8b57, #4682b4)';
+                submitBtn.disabled = false;
+            }, 3000);
         });
     </script>
 </body>
