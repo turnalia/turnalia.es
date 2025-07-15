@@ -1,1 +1,1278 @@
-Turnalia under construction
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="meta.title">Turnalia - Gestión Inteligente de Turnos</title>
+    <meta name="description" data-translate="meta.description" content="Turnalia - La solución moderna para la gestión de turnos hospitalarios y equipos médicos">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8f5e8 0%, #e6f3ff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            
+        }
+
+        header {
+            background: linear-gradient(135deg, #7cc27c 0%, #7cc27c 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.5rem;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo .icon {
+            width: 50px;
+            height: 50px;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #7cc27c 0%, #7cc27c 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero .emojis {
+            font-size: 4rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #228B22;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f0f8f0, #f0f8ff);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #4682b4;
+        }
+
+        .feature-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: #228B22;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #228B22, #32CD32);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-item .number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-item .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .waitlist {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f0f8f0, #f0f8ff);
+        }
+
+        .waitlist-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .waitlist h2 {
+            color: #228B22;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .waitlist-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+
+        .waitlist-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #228B22;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4682b4;
+            box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .waitlist-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            color: white;
+            border: none;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .waitlist-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .waitlist-benefits {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+
+        .waitlist-benefits h3 {
+            color: #228B22;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .waitlist-benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .waitlist-benefits li {
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .about {
+            padding: 5rem 0;
+            background: #f8fffe;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about h2 {
+            color: #228B22;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .about-visual {
+            text-align: center;
+            font-size: 8rem;
+            color: #4682b4;
+            opacity: 0.7;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #32cd32;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #32cd32;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-right {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .language-switcher {
+                align-self: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero .emojis {
+                font-size: 3rem;
+                gap: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-visual {
+                font-size: 5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .waitlist-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .waitlist h2 {
+                font-size: 2rem;
+            }
+
+            .waitlist-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        /* Modern CSS Icons */
+        .icon {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: relative;
+            background: linear-gradient(135deg, #228B22, #32CD32);
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .icon::before,
+        .icon::after {
+            content: '';
+            position: absolute;
+            background: white;
+        }
+
+        /* Logo Icon - Gear/Settings */
+        .icon-logo {
+            background: linear-gradient(135deg, #2e8b57, #4682b4);
+        }
+
+        .icon-logo::before {
+            width: 30px;
+            height: 30px;
+            top: 15px;
+            left: 15px;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-sizing: border-box;
+        }
+
+        .icon-logo::after {
+            width: 8px;
+            height: 8px;
+            top: 26px;
+            left: 26px;
+            border-radius: 50%;
+            background: #2e8b57;
+        }
+
+        /* Calendar Icon */
+        .icon-calendar::before {
+            width: 40px;
+            height: 30px;
+            top: 20px;
+            left: 10px;
+            border-radius: 4px;
+            border: 3px solid white;
+            box-sizing: border-box;
+        }
+
+        .icon-calendar::after {
+            width: 20px;
+            height: 2px;
+            top: 28px;
+            left: 20px;
+            background: white;
+            box-shadow: 0 6px white, 0 12px white;
+        }
+
+        /* Team Icon */
+        .icon-team::before {
+            width: 20px;
+            height: 20px;
+            top: 15px;
+            left: 20px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-sizing: border-box;
+        }
+
+        .icon-team::after {
+            width: 35px;
+            height: 15px;
+            top: 35px;
+            left: 12.5px;
+            border-radius: 17px 17px 0 0;
+            border: 3px solid white;
+            border-bottom: none;
+            box-sizing: border-box;
+        }
+
+        /* Exchange Icon */
+        .icon-exchange::before {
+            width: 30px;
+            height: 3px;
+            top: 20px;
+            left: 15px;
+            background: white;
+            border-radius: 2px;
+            transform: rotate(45deg);
+        }
+
+        .icon-exchange::after {
+            width: 30px;
+            height: 3px;
+            top: 37px;
+            left: 15px;
+            background: white;
+            border-radius: 2px;
+            transform: rotate(-45deg);
+        }
+
+        /* Mobile Icon */
+        .icon-mobile::before {
+            width: 25px;
+            height: 40px;
+            top: 10px;
+            left: 17.5px;
+            border-radius: 5px;
+            border: 3px solid white;
+            box-sizing: border-box;
+        }
+
+        .icon-mobile::after {
+            width: 15px;
+            height: 2px;
+            top: 45px;
+            left: 22.5px;
+            background: white;
+            border-radius: 1px;
+        }
+
+        /* Reports Icon */
+        .icon-reports::before {
+            width: 8px;
+            height: 25px;
+            top: 25px;
+            left: 15px;
+            background: white;
+            border-radius: 1px;
+        }
+
+        .icon-reports::after {
+            width: 8px;
+            height: 15px;
+            top: 35px;
+            left: 25px;
+            background: white;
+            border-radius: 1px;
+            box-shadow: 12px -10px white;
+        }
+
+        /* Security Icon */
+        .icon-security::before {
+            width: 25px;
+            height: 20px;
+            top: 25px;
+            left: 17.5px;
+            border-radius: 3px;
+            border: 3px solid white;
+            border-top: none;
+            box-sizing: border-box;
+        }
+
+        .icon-security::after {
+            width: 15px;
+            height: 15px;
+            top: 15px;
+            left: 22.5px;
+            border-radius: 50% 50% 0 0;
+            border: 3px solid white;
+            border-bottom: none;
+            box-sizing: border-box;
+        }
+
+        /* Hero Icons */
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-icon::before,
+        .hero-icon::after {
+            background: white;
+        }
+
+        /* Responsive adjustments for icons */
+        @media (max-width: 768px) {
+            .icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .hero-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0 0.5rem;
+            }
+
+            .icon::before,
+            .icon::after {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="emoji">🗓️</span>
+                    Turnalia
+                </div>
+                <div class="header-right">
+                    <nav>
+                        <ul>
+                            <li><a href="#inicio" data-translate="nav.home">Inicio</a></li>
+                            <li><a href="#caracteristicas" data-translate="nav.features">Características</a></li>
+                            <li><a href="#lista-espera" data-translate="nav.waitlist">Lista de Espera</a></li>
+                            <li><a href="#sobre-nosotros" data-translate="nav.about">Acerca de</a></li>
+                            <li><a href="#contacto" data-translate="nav.contact">Contacto</a></li>
+                        </ul>
+                    </nav>
+                    <div class="language-switcher">
+                        <button class="lang-btn active" onclick="switchLanguage('es')" id="lang-es">🇪🇸 ES</button>
+                        <button class="lang-btn" onclick="switchLanguage('en')" id="lang-en">🇬🇧 EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1 data-translate="hero.title">Gestión Inteligente de Turnos</h1>
+            <p class="subtitle" data-translate="hero.subtitle">La solución moderna para hospitales y equipos médicos</p>
+            <div class="emojis">
+                <span class="pulse">👩‍⚕️</span>
+                <span class="pulse">🏥</span>
+                <span class="pulse">👨‍⚕️</span>
+                <span class="pulse">📋</span>
+            </div>
+            <a href="#caracteristicas" class="cta-button" data-translate="hero.cta">Descubre Turnalia</a>
+        </div>
+    </section>
+
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <h2 data-translate="features.title">¿Por qué elegir Turnalia?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="emoji">📅</span>
+                    <h3 data-translate="features.planning.title">Planificación Automática</h3>
+                    <p data-translate="features.planning.description">Algoritmos inteligentes que optimizan automáticamente los horarios según las necesidades del personal y del hospital.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">👥</span>
+                    <h3 data-translate="features.teams.title">Gestión de Equipos</h3>
+                    <p data-translate="features.teams.description">Organiza eficientemente a médicos, enfermeros y personal auxiliar con distribución equitativa de cargas de trabajo.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">🔄</span>
+                    <h3 data-translate="features.exchange.title">Intercambio de Turnos</h3>
+                    <p data-translate="features.exchange.description">Facilita el intercambio de turnos entre compañeros con un sistema de notificaciones en tiempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">📱</span>
+                    <h3 data-translate="features.mobile.title">App Móvil</h3>
+                    <p data-translate="features.mobile.description">Accede a tus horarios desde cualquier lugar con nuestra aplicación móvil intuitiva y fácil de usar.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">📊</span>
+                    <h3 data-translate="features.reports.title">Reportes Detallados</h3>
+                    <p data-translate="features.reports.description">Analiza patrones de trabajo, horas extras y distribución de turnos con informes completos y visualizaciones.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">🔐</span>
+                    <h3 data-translate="features.security.title">Seguridad Garantizada</h3>
+                    <p data-translate="features.security.description">Protección de datos médicos con encriptación de grado sanitario y cumplimiento de normativas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="stats">
+        <div class="container">
+            <h2 data-translate="stats.title">Turnalia en Números</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="number">50+</span>
+                    <span class="label" data-translate="stats.hospitals">Hospitales</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">15,000+</span>
+                    <span class="label" data-translate="stats.users">Usuarios</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">99.9%</span>
+                    <span class="label" data-translate="stats.uptime">Uptime</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">24/7</span>
+                    <span class="label" data-translate="stats.support">Soporte</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="lista-espera" class="waitlist">
+        <div class="container">
+            <div class="waitlist-content">
+                <h2 data-translate="waitlist.title">🚀 Únete a la Lista de Espera</h2>
+                <p class="waitlist-subtitle" data-translate="waitlist.subtitle">Sé el primero en acceder a Turnalia y revoluciona la gestión de turnos en tu hospital</p>
+                
+                <form class="waitlist-form" id="waitlistForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre" data-translate="waitlist.form.name">👤 Nombre Completo</label>
+                            <input type="text" id="nombre" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="waitlist.form.email">📧 Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hospital" data-translate="waitlist.form.hospital">🏥 Hospital/Centro Médico</label>
+                            <input type="text" id="hospital" name="hospital" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cargo" data-translate="waitlist.form.position">👤 Cargo/Posición</label>
+                            <select id="cargo" name="role" required>
+                                <option value="" data-translate="waitlist.form.selectPosition">Selecciona tu cargo</option>
+                                <option value="director-general" data-translate="waitlist.form.positions.general_director">Director General</option>
+                                <option value="gerente-operaciones" data-translate="waitlist.form.positions.operations_manager">Gerente de Operaciones</option>
+                                <option value="jefe-rrhh" data-translate="waitlist.form.positions.hr_manager">Jefe de RRHH</option>
+                                <option value="supervisor" data-translate="waitlist.form.positions.supervisor">Supervisor</option>
+                                <option value="empleado" data-translate="waitlist.form.positions.employee">Empleado</option>
+                                <option value="administrativo" data-translate="waitlist.form.positions.admin">Personal Administrativo</option>
+                                <option value="otros" data-translate="waitlist.form.positions.other">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono" data-translate="waitlist.form.phone">📞 Teléfono (opcional)</label>
+                        <input type="tel" id="telefono" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comentarios" data-translate="waitlist.form.comments">💬 ¿Cuáles son tus principales desafíos en la gestión de turnos?</label>
+                        <textarea id="comentarios" name="comment" rows="4" data-translate-placeholder="waitlist.form.commentsPlaceholder" placeholder="Cuéntanos qué problemas enfrentas actualmente..."></textarea>
+                    </div>
+
+                    <button type="submit" class="waitlist-btn">
+                        <span data-translate="waitlist.form.submit">✨ Unirme a la Lista de Espera</span>
+                    </button>
+                </form>
+
+                <div class="waitlist-benefits">
+                    <h3 data-translate="waitlist.benefits.title">📋 Beneficios de ser early adopter:</h3>
+                    <ul>
+                        <li data-translate="waitlist.benefits.access">🎯 Acceso prioritario y gratuito durante 3 meses</li>
+                        <li data-translate="waitlist.benefits.training">📚 Formación personalizada para tu equipo</li>
+                        <li data-translate="waitlist.benefits.development">🤝 Participación en el desarrollo de nuevas funcionalidades</li>
+                        <li data-translate="waitlist.benefits.discounts">💰 Descuentos especiales en planes anuales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2 data-translate="about.title">Sobre Turnalia</h2>
+                    <p data-translate="about.paragraph1">Turnalia surge con un objetivo claro: modernizar la gestión de turnos en organizaciones que dependen de equipos rotativos, especialmente en sectores como la salud.</p>
+                    <p data-translate="about.paragraph2">Nuestra misión es simplificar la planificación de turnos, reducir la carga administrativa y mejorar la eficiencia operativa, sin perder de vista lo más importante: el bienestar del equipo.</p>
+                    <p data-translate="about.paragraph3">Con Turnalia, las empresas pueden automatizar cuadrantes, gestionar cambios de turno de forma fluida, garantizar la cobertura adecuada en todos los departamentos y promover un equilibrio saludable entre la vida personal y el trabajo.</p>
+                </div>
+                <div class="about-visual">
+                    🏥
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="footer.contact.title">Contacto</h3>
+                    <p>📧 info@turnalia.es</p>
+                    <p data-translate="footer.contact.location">🏢 Murcia, España</p>
+                </div>
+                <!-- <div class="footer-section">
+                    <h3 data-translate="footer.resources.title">Recursos</h3>
+                    <p><a href="#" data-translate="footer.resources.documentation">Documentación</a></p>
+                    <p><a href="#" data-translate="footer.resources.guides">Guías de Usuario</a></p>
+                    <p><a href="#" data-translate="footer.resources.api">API</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="footer.company.title">Empresa</h3>
+                    <p><a href="#" data-translate="footer.company.about">Acerca de</a></p>
+                    <p><a href="#" data-translate="footer.company.privacy">Política de Privacidad</a></p>
+                    <p><a href="#" data-translate="footer.company.terms">Términos de Servicio</a></p>
+                </div> -->
+            </div>
+            <div class="footer-bottom">
+                <p data-translate="footer.copyright">&copy; 2025 Turnalia. Todos los derechos reservados. 🏥 Gestión inteligente de turnos hospitalarios.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translation objects
+        const translations = {
+            es: {
+                meta: {
+                    title: "Turnalia - Gestión Inteligente de Turnos",
+                    description: "Turnalia - La solución moderna para la gestión de turnos hospitalarios y equipos médicos"
+                },
+                nav: {
+                    home: "Inicio",
+                    features: "Características",
+                    waitlist: "Lista de Espera",
+                    about: "Acerca de",
+                    contact: "Contacto"
+                },
+                hero: {
+                    title: "Gestión Inteligente de Turnos",
+                    subtitle: "La solución moderna para hospitales y equipos médicos",
+                    cta: "Descubre Turnalia"
+                },
+                features: {
+                    title: "¿Por qué elegir Turnalia?",
+                    planning: {
+                        title: "Planificación Automática",
+                        description: "Algoritmos inteligentes que optimizan automáticamente los horarios según las necesidades del personal y del hospital."
+                    },
+                    teams: {
+                        title: "Gestión de Equipos",
+                        description: "Organiza eficientemente a médicos, enfermeros y personal auxiliar con distribución equitativa de cargas de trabajo."
+                    },
+                    exchange: {
+                        title: "Intercambio de Turnos",
+                        description: "Facilita el intercambio de turnos entre compañeros con un sistema de notificaciones en tiempo real."
+                    },
+                    mobile: {
+                        title: "App Móvil",
+                        description: "Accede a tus horarios desde cualquier lugar con nuestra aplicación móvil intuitiva y fácil de usar."
+                    },
+                    reports: {
+                        title: "Reportes Detallados",
+                        description: "Analiza patrones de trabajo, horas extras y distribución de turnos con informes completos y visualizaciones."
+                    },
+                    security: {
+                        title: "Seguridad Garantizada",
+                        description: "Protección de datos médicos con encriptación de grado sanitario y cumplimiento de normativas."
+                    }
+                },
+                stats: {
+                    title: "Turnalia en Números",
+                    hospitals: "Hospitales",
+                    users: "Usuarios",
+                    uptime: "Uptime",
+                    support: "Soporte"
+                },
+                waitlist: {
+                    title: "🚀 Únete a la Lista de Espera",
+                    subtitle: "Sé el primero en acceder a Turnalia y revoluciona la gestión de turnos en tu hospital",
+                    form: {
+                        name: "👤 Nombre Completo",
+                        email: "📧 Email",
+                        hospital: "🏥 Hospital/Centro Médico",
+                        position: "👩‍⚕️ Cargo/Posición",
+                        selectPosition: "Selecciona tu cargo",
+                        positions: {
+                            general_director: "Director General",
+                            operations_manager: "Gerente de Operaciones",
+                            hr_manager: "Jefe de RRHH",
+                            supervisor: "Supervisor",
+                            employee: "Empleado",
+                            admin: "Personal Administrativo",
+                            other: "Otros"
+                        },
+                        phone: "📞 Teléfono (opcional)",
+                        comments: "💬 ¿Cuáles son tus principales desafíos en la gestión de turnos?",
+                        commentsPlaceholder: "Cuéntanos qué problemas enfrentas actualmente...",
+                        submit: "✨ Unirme a la Lista de Espera"
+                    },
+                    benefits: {
+                        title: "📋 Beneficios de ser early adopter:",
+                        access: "🎯 Acceso prioritario y gratuito durante 3 meses",
+                        training: "📚 Formación personalizada para tu equipo",
+                        development: "🤝 Participación en el desarrollo de nuevas funcionalidades",
+                        discounts: "💰 Descuentos especiales en planes anuales"
+                    }
+                },
+                about: {
+                    title: "Sobre Turnalia",
+                    paragraph1: "Turnalia nace con un propósito claro: transformar la gestión de turnos en entornos hospitalarios, donde la planificación eficiente no es solo una cuestión operativa, sino también de bienestar y calidad asistencial.",
+                    paragraph2: "Desarrollada en colaboración con profesionales de la salud, Turnalia responde a la complejidad real de los hospitales: cambios constantes, turnos solapados, solicitudes de cambios entre compañeros, y la necesidad de garantizar cobertura segura en cada unidad.",
+                    paragraph3: "Nuestra misión es reducir la carga administrativa de los coordinadores, dar autonomía al personal para gestionar sus turnos y facilitar una visión clara del cuadrante de cada servicio."
+                },
+                footer: {
+                    contact: {
+                        title: "Contacto",
+                        location: "🏢 Murcia, España"
+                    },
+                    resources: {
+                        title: "Recursos",
+                        documentation: "Documentación",
+                        guides: "Guías de Usuario",
+                        api: "API"
+                    },
+                    company: {
+                        title: "Empresa",
+                        about: "Acerca de",
+                        privacy: "Política de Privacidad",
+                        terms: "Términos de Servicio"
+                    },
+                    copyright: "© 2025 Turnalia. Todos los derechos reservados. 🏥 Gestión inteligente de turnos hospitalarios."
+                },
+                form: {
+                    validation: "Por favor, completa todos los campos obligatorios.",
+                    success: "✅ ¡Gracias! Te contactaremos pronto"
+                }
+            },
+            en: {
+                meta: {
+                    title: "Turnalia - Intelligent Shift Management",
+                    description: "Turnalia - The modern solution for hospital shift management and medical teams"
+                },
+                nav: {
+                    home: "Home",
+                    features: "Features",
+                    waitlist: "Waitlist",
+                    about: "About",
+                    contact: "Contact"
+                },
+                hero: {
+                    title: "Intelligent Shift Management",
+                    subtitle: "The modern solution for hospitals and medical teams",
+                    cta: "Discover Turnalia"
+                },
+                features: {
+                    title: "Why choose Turnalia?",
+                    planning: {
+                        title: "Automatic Planning",
+                        description: "Intelligent algorithms that automatically optimize schedules according to staff and hospital needs."
+                    },
+                    teams: {
+                        title: "Team Management",
+                        description: "Efficiently organize doctors, nurses and auxiliary staff with equitable workload distribution."
+                    },
+                    exchange: {
+                        title: "Shift Exchange",
+                        description: "Facilitate shift exchanges between colleagues with a real-time notification system."
+                    },
+                    mobile: {
+                        title: "Mobile App",
+                        description: "Access your schedules from anywhere with our intuitive and easy-to-use mobile application."
+                    },
+                    reports: {
+                        title: "Detailed Reports",
+                        description: "Analyze work patterns, overtime and shift distribution with comprehensive reports and visualizations."
+                    },
+                    security: {
+                        title: "Guaranteed Security",
+                        description: "Protection of medical data with healthcare-grade encryption and regulatory compliance."
+                    }
+                },
+                stats: {
+                    title: "Turnalia in Numbers",
+                    hospitals: "Hospitals",
+                    users: "Users",
+                    uptime: "Uptime",
+                    support: "Support"
+                },
+                waitlist: {
+                    title: "🚀 Join the Waitlist",
+                    subtitle: "Be the first to access Turnalia and revolutionize shift management in your hospital",
+                    form: {
+                        name: "👤 Full Name",
+                        email: "📧 Email",
+                        hospital: "🏥 Hospital/Medical Center",
+                        position: "👩‍⚕️ Position/Role",
+                        selectPosition: "Select your position",
+                        positions: {
+                            general_director: "General Director",
+                            operations_manager: "Operations Manager",
+                            hr_manager: "HR Manager",
+                            supervisor: "Supervisor",
+                            employee: "Employee",
+                            admin: "Administrative Staff",
+                            other: "Other"
+                        },
+                        phone: "📞 Phone (optional)",
+                        comments: "💬 What are your main challenges in shift management?",
+                        commentsPlaceholder: "Tell us what problems you currently face...",
+                        submit: "✨ Join the Waitlist"
+                    },
+                    benefits: {
+                        title: "📋 Early adopter benefits:",
+                        access: "🎯 Priority access and free for 3 months",
+                        training: "📚 Personalized training for your team",
+                        development: "🤝 Participation in new feature development",
+                        discounts: "💰 Special discounts on annual plans"
+                    }
+                },
+                about: {
+                    title: "About Turnalia",
+                    paragraph1: "Turnalia was created with a clear purpose: to transform shift management in hospital environments, where efficient planning is not just an operational matter, but also one of well-being and quality of care.",
+                    paragraph2: "Developed in collaboration with healthcare professionals, Turnalia addresses the real complexity of hospitals: constant changes, overlapping shifts, peer-to-peer swap requests, and the need to ensure safe coverage in every unit.",
+                    paragraph3: "Our mission is to reduce the administrative burden on coordinators, empower staff to manage their own shifts, and provide a clear, real-time view of each department’s schedule."
+                },
+                footer: {
+                    contact: {
+                        title: "Contact",
+                        location: "🏢 Murcia, Spain"
+                    },
+                    resources: {
+                        title: "Resources",
+                        documentation: "Documentation",
+                        guides: "User Guides",
+                        api: "API"
+                    },
+                    company: {
+                        title: "Company",
+                        about: "About",
+                        privacy: "Privacy Policy",
+                        terms: "Terms of Service"
+                    },
+                    copyright: "© 2025 Turnalia. All rights reserved. 🏥 Intelligent hospital shift management."
+                },
+                form: {
+                    validation: "Please fill in all required fields.",
+                    success: "✅ Thank you! We'll contact you soon"
+                }
+            }
+        };
+
+        // Current language (default Spanish)
+        let currentLanguage = localStorage.getItem('turnalia-language') || 'es';
+
+        // Function to get nested object value by path
+        function getNestedValue(obj, path) {
+            return path.split('.').reduce((current, key) => current && current[key], obj);
+        }
+
+        // Function to translate page
+        function translatePage(language) {
+            const langData = translations[language];
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = language;
+            
+            // Update title and meta description
+            const title = document.querySelector('title');
+            const metaDesc = document.querySelector('meta[name="description"]');
+            
+            if (title) title.textContent = langData.meta.title;
+            if (metaDesc) metaDesc.setAttribute('content', langData.meta.description);
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                const translation = getNestedValue(langData, key);
+                
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                const translation = getNestedValue(langData, key);
+                
+                if (translation) {
+                    element.setAttribute('placeholder', translation);
+                }
+            });
+            
+            // Store language preference
+            localStorage.setItem('turnalia-language', language);
+            currentLanguage = language;
+        }
+
+        // Function to switch language
+        function switchLanguage(language) {
+            // Update active button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${language}`).classList.add('active');
+            
+            // Translate the page
+            translatePage(language);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${currentLanguage}`).classList.add('active');
+            
+            // Apply translations
+            translatePage(currentLanguage);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactivity to feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Waitlist form submission
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.hospital || !data.role) {
+                alert(translations[currentLanguage].form.validation);
+                return;
+            }
+            
+            // Show success message
+            const submitBtn = this.querySelector('.waitlist-btn span');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = translations[currentLanguage].form.success;
+            const button = this.querySelector('.waitlist-btn');
+            button.style.background = 'linear-gradient(45deg, #32cd32, #20b2aa)';
+            button.disabled = true;
+            
+            // Uploading data to Supabase using Post request
+            // Using anon key as we do not required being authenticated.
+            fetch('https://jilvsohecdhgauvwqmhs.supabase.co/functions/v1/waiting-list', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppbHZzb2hlY2RoZ2F1dndxbWhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1MjcwNjYsImV4cCI6MjA2ODEwMzA2Nn0.v0k3gQePnTH38PEwLXLkFAQqXICA27KOGtlEOMVxUsc'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Supabase response:', result);
+            })
+            .catch(error => {
+                console.error('Supabase error:', error);
+            });
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                this.reset();
+                submitBtn.textContent = originalText;
+                button.style.background = 'linear-gradient(45deg, #228B22, #32CD32)';
+                button.disabled = false;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
